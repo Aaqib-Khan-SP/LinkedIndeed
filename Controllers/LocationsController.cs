@@ -1,5 +1,7 @@
-﻿using LinkedIndeed.BLL.Models;
+﻿using LinkedIndeed.API.Filters;
+using LinkedIndeed.BLL.Models;
 using LinkedIndeed.BLL.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +14,7 @@ using System.Threading.Tasks;
 namespace LinkedIndeed.API.Controllers
 {
     [Route("api/[controller]")]
+    [TokenAuthenticationFilter]
     [ApiController]
     public class LocationsController : ControllerBase
     {

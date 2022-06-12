@@ -8,10 +8,13 @@ using LinkedIndeed.BLL.Services;
 using LinkedIndeed.BLL.Models;
 using Microsoft.AspNetCore.Http.Extensions;
 using System.Net;
+using LinkedIndeed.API.Filters;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LinkedIndeed.API.Controllers
 {
     [Route("api/[controller]")]
+    [TokenAuthenticationFilter]
     [ApiController]
     public class JobsController : ControllerBase
     {

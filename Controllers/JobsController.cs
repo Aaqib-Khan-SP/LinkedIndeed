@@ -22,11 +22,11 @@ namespace LinkedIndeed.API.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public ActionResult<Job> GetJob(int id)
+        public ActionResult<JobDetails> GetJob(int id)
         {
             try
             {
-                Job job = _jobsService.GetJobByID(id);
+                JobDetails job = _jobsService.GetJobByID(id);
                 if (job != null)
                 {
                     return job;
@@ -40,13 +40,12 @@ namespace LinkedIndeed.API.Controllers
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, "Error getting Job Data");
             }
-            
         }
 
         [HttpGet("list")]
-        public ActionResult<ListJobs> GetJobs()
+        public ActionResult<ListJobs> GetJobs([FromBody] PagingParameters parameters)
         {
-            return _jobsService.GetJobs(); ;
+            return _jobsService.GetJobs(parameters); ;
         }
 
         [HttpPost]
